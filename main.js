@@ -8,7 +8,6 @@ let cr_time = document.getElementById("cr_time");
 let timer = document.getElementById("timer");
 let volum = document.getElementById("volum");
 let cover = document.getElementById("cover");
-let cursol = document.getElementById("cursol");
 volum.value = 0.5;
 volum.style.background = "linear-gradient(90deg, rgba(230,126,34,1) 50%, #e1e1e1 0%)";
 MyMusic.volume = 0.5;
@@ -21,7 +20,7 @@ play_btn.addEventListener("click",function () {
     pauses_btn.classList.add("flex");
 
     full_time.innerHTML = getTime(MyMusic.duration);
-    cursol.classList.add("rotate-[25deg]");
+    
     cover.classList.add("animate-c");
 });
 pauses_btn.addEventListener("click",function () {
@@ -32,7 +31,7 @@ pauses_btn.addEventListener("click",function () {
     play_btn.classList.remove("hidden");
     play_btn.classList.add("flex");
     
-    cursol.classList.remove("rotate-[25deg]");
+    
     cover.classList.remove("animate-c")
 });
 back_btn.addEventListener("click",() =>  MyMusic.currentTime = MyMusic.currentTime - 5);
