@@ -2,6 +2,7 @@ let MyMusic = new Audio("./music.mp3");
 let back_btn = document.getElementById("back_btn");
 let play_btn = document.getElementById("play_btn");
 let pauses_btn = document.getElementById("pauses_btn");
+let rest_btn = document.getElementById("rest_btn");
 let forward_btn = document.getElementById("forward_btn");
 let full_time = document.getElementById("full_time");
 let cr_time = document.getElementById("cr_time");
@@ -61,3 +62,24 @@ function getTime(user_time) {
     }
     return min + ":" + se;
 }
+MyMusic.addEventListener("ended",() =>{
+    pauses_btn.classList.remove("flex");    
+    pauses_btn.classList.add("hidden");
+    
+    rest_btn.classList.remove("hidden");
+    rest_btn.classList.add("flex");
+
+    cover.classList.remove("animate-c");
+});
+rest_btn.addEventListener("click",function () {  
+    this.classList.remove("flex");
+    this.classList.add("hidden");
+
+    pauses_btn.classList.remove("hidden");
+    pauses_btn.classList.add("flex");
+
+    MyMusic.currentTime = 0;
+    MyMusic.play();
+    
+    cover.classList.add("animate-c");
+});
